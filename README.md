@@ -1,5 +1,6 @@
 # charmap
 
+[![Build Status](https://img.shields.io/github/actions/workflow/status/owo/charmap/test.yaml)](https://github.com/owo/charmap/actions/workflows/test.yaml)
 [![crates.io](https://img.shields.io/crates/v/charmap)](https://crates.io/crates/charmap)
 [![Documentation](https://img.shields.io/docsrs/charmap)](https://docs.rs/charmap)
 
