@@ -1,8 +1,48 @@
 [package]
 name = "charmap"
 version = "0.1.0"
+authors = ["Ossama W. Obeid <owo@owobeid.com>"]
+categories = ["text-processing", "no-std"]
+keywords = ["text", "iterator", "nlp", "no_std", "no-std"]
+description = "A library for one-to-(none/one/many) character mapping."
+homepage = "https://github.com/owo/charmap"
+include = ["src/**/*.rs", "README.md", "LICENSE-APACHE", "LICENSE-MIT"]
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/owo/charmap"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+# TODO: Figure out the minimum versions of optional dependencies that are
+# compatible with this crate.
+hashbrown = { version = "0", optional = true }
+phf = { version = "0", optional = true }
+
+[dev-dependencies]
+lazy_static = "1.4"
+# We need the macro feature for testing.
+phf = { version = "0.11", features = ["macros"] }
+
+[features]
+default = ["std"]
+
+# Mainly used for testing
+all = ["std", "hashbrown", "phf"]
+
+# Provide implementations for the standard library HashMap and BTreeMap.
+std = []
+
+# Provide implementations for hashbrown's HashMap.
+hashbrown = ["dep:hashbrown"]
+
+# Provide implementations for phf's Map and OrderedMap.
+phf = ["dep:phf"]
+
+[profile.release]
+debug = true
+
+[profile.bench]
+debug = true
+
+[profile.test]
+debug = true
