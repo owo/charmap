@@ -1,5 +1,8 @@
 # charmap
 
+[![crates.io](https://img.shields.io/crates/v/charmap)](https://crates.io/crates/charmap)
+[![Documentation](https://img.shields.io/docsrs/charmap)](https://docs.rs/charmap)
+
 A Rust library for one-to-(none/one/many) character mapping.
 It's main use-case is preprocessing, transliterating, and cleaning natural
 language text.
