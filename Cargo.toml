@@ -1,6 +1,6 @@
 [package]
 name = "charmap"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Ossama W. Obeid <owo@owobeid.com>"]
 categories = ["text-processing", "no-std"]
 keywords = ["text", "iterator", "nlp", "no_std", "no-std"]
