@@ -19,7 +19,7 @@ where
     /// action to take if a character is not in the given [`ActionMap`].
     #[inline]
     pub fn new(actionmap: &'a M, default: CharMapAction<'a>) -> Self {
-        CharMapper { actionmap, default: default }
+        CharMapper { actionmap, default }
     }
 
     /// Returns the [`CharMapAction`] asscociated with a given character.
@@ -68,8 +68,8 @@ where
         I: Iterator<Item = char>,
     {
         MappedChars {
-            charmapper: charmapper,
-            text_chars: text_chars,
+            charmapper,
+            text_chars,
             sub_chars: "".chars(),
             in_sub: false,
         }

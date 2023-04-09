@@ -16,7 +16,7 @@ pub enum CharMapAction<'a> {
 /// mappings for [`CharMapper`](super::CharMapper).
 pub trait ActionMap {
     /// Map a character to its respective CharMapAction.
-    fn map_char<'a>(&'a self, c: char) -> Option<&'a CharMapAction<'a>>;
+    fn map_char(&'_ self, c: char) -> Option<&'_ CharMapAction<'_>>;
 }
 
 // ====== ActionMap implementations for most commonly used maps ====== //
@@ -24,7 +24,7 @@ pub trait ActionMap {
 #[cfg(feature = "std")]
 impl ActionMap for std::collections::HashMap<char, CharMapAction<'_>> {
     #[inline]
-    fn map_char<'a>(&'a self, c: char) -> Option<&'a CharMapAction<'a>> {
+    fn map_char(&'_ self, c: char) -> Option<&'_ CharMapAction<'_>> {
         self.get(&c)
     }
 }
@@ -32,7 +32,7 @@ impl ActionMap for std::collections::HashMap<char, CharMapAction<'_>> {
 #[cfg(feature = "std")]
 impl ActionMap for std::collections::BTreeMap<char, CharMapAction<'_>> {
     #[inline]
-    fn map_char<'a>(&'a self, c: char) -> Option<&'a CharMapAction<'a>> {
+    fn map_char(&'_ self, c: char) -> Option<&'_ CharMapAction<'_>> {
         self.get(&c)
     }
 }
@@ -40,7 +40,7 @@ impl ActionMap for std::collections::BTreeMap<char, CharMapAction<'_>> {
 #[cfg(feature = "hashbrown")]
 impl ActionMap for hashbrown::HashMap<char, CharMapAction<'_>> {
     #[inline]
-    fn map_char<'a>(&'a self, c: char) -> Option<&'a CharMapAction<'a>> {
+    fn map_char(&'_ self, c: char) -> Option<&'_ CharMapAction<'_>> {
         self.get(&c)
     }
 }
@@ -48,7 +48,7 @@ impl ActionMap for hashbrown::HashMap<char, CharMapAction<'_>> {
 #[cfg(feature = "phf")]
 impl ActionMap for phf::Map<char, CharMapAction<'_>> {
     #[inline]
-    fn map_char<'a>(&'a self, c: char) -> Option<&'a CharMapAction<'a>> {
+    fn map_char(&'_ self, c: char) -> Option<&'_ CharMapAction<'_>> {
         self.get(&c)
     }
 }
@@ -56,7 +56,7 @@ impl ActionMap for phf::Map<char, CharMapAction<'_>> {
 #[cfg(feature = "phf")]
 impl ActionMap for phf::OrderedMap<char, CharMapAction<'_>> {
     #[inline]
-    fn map_char<'a>(&'a self, c: char) -> Option<&'a CharMapAction<'a>> {
+    fn map_char(&'_ self, c: char) -> Option<&'_ CharMapAction<'_>> {
         self.get(&c)
     }
 }
