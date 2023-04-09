@@ -23,7 +23,7 @@
 //! [`HashMap`](https://doc.rust-lang.org/std/collections/struct.HashMap.html).
 //!
 //! `charmap` also supports [`hashbrown`](https://crates.io/crates/hashbrown)'s
-//! [`HashMap`](https://docs.rs/hashbrown/0.13.2/hashbrown/struct.HashMap.html) and
+//! [`HashMap`](https://docs.rs/hashbrown/latest/hashbrown/struct.HashMap.html) and
 //! [`phf`](https://crates.io/crates/phf)'s
 //! [`Map`](https://docs.rs/phf/latest/phf/struct.Map.html) and
 //! [`OrderedMap`](https://docs.rs/phf/latest/phf/struct.OrderedMap.html) types.
