@@ -13,7 +13,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! charmap = "0.1"
+//! charmap = "0.2"
 //! ```
 //!
 //! This should also allow you to use
@@ -34,7 +34,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! charmap = {version = "0.1", features = ["phf"]}
+//! charmap = {version = "0.2", features = ["phf"]}
 //! ```
 //!
 //! You can also disable libstd support for `no_std` builds by setting
@@ -42,7 +42,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! charmap = {version = "0.1", default-features = false, features = ["phf"]}
+//! charmap = {version = "0.2", default-features = false, features = ["phf"]}
 //! ```
 //!
 //! ## Example
