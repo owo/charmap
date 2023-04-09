@@ -11,14 +11,16 @@ mod test {
 
     // TODO: Use mappings from data. Though this might require a build script.
     static HASH_CHARMAP: phf::Map<char, CharMapAction> = phf_map! {
-        'e' => CharMapAction::Sub("eeee"),
+        'd' => CharMapAction::SubChar('m'),
+        'e' => CharMapAction::SubStr("eeee"),
         'l' => CharMapAction::Delete,
         'o' => CharMapAction::Pass,
     };
 
     // TODO: Use mappings from data. Though this might require a build script.
     static ORDERED_CHARMAP: phf::OrderedMap<char, CharMapAction> = phf_ordered_map! {
-        'e' => CharMapAction::Sub("eeee"),
+        'd' => CharMapAction::SubChar('m'),
+        'e' => CharMapAction::SubStr("eeee"),
         'l' => CharMapAction::Delete,
         'o' => CharMapAction::Pass,
     };
@@ -61,7 +63,8 @@ mod test {
 
     #[test]
     fn phf_hashmap_default_sub_x() {
-        let mapper = CharMapper::new(&HASH_CHARMAP, CharMapAction::Sub("x"));
+        let mapper =
+            CharMapper::new(&HASH_CHARMAP, CharMapAction::SubStr("x"));
 
         for (input, expected) in TEST_STRINGS_SUB_X {
             let mapped: String = input.map_chars(&mapper).collect();
@@ -79,7 +82,7 @@ mod test {
 
     #[test]
     fn phf_hashmap_default_sub_empty() {
-        let mapper = CharMapper::new(&HASH_CHARMAP, CharMapAction::Sub(""));
+        let mapper = CharMapper::new(&HASH_CHARMAP, CharMapAction::SubStr(""));
 
         for (input, expected) in TEST_STRINGS_DELETE {
             let mapped: String = input.map_chars(&mapper).collect();
@@ -134,7 +137,7 @@ mod test {
     #[test]
     fn phf_orderedmap_default_sub_x() {
         let mapper =
-            CharMapper::new(&ORDERED_CHARMAP, CharMapAction::Sub("x"));
+            CharMapper::new(&ORDERED_CHARMAP, CharMapAction::SubStr("x"));
 
         for (input, expected) in TEST_STRINGS_SUB_X {
             let mapped: String = input.map_chars(&mapper).collect();
@@ -152,7 +155,8 @@ mod test {
 
     #[test]
     fn phf_orderedmap_default_sub_empty() {
-        let mapper = CharMapper::new(&ORDERED_CHARMAP, CharMapAction::Sub(""));
+        let mapper =
+            CharMapper::new(&ORDERED_CHARMAP, CharMapAction::SubStr(""));
 
         for (input, expected) in TEST_STRINGS_DELETE {
             let mapped: String = input.map_chars(&mapper).collect();

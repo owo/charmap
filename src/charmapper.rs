@@ -103,7 +103,8 @@ where
                     match self.charmapper.get_action(c) {
                         CharMapAction::Pass => return Some(c),
                         CharMapAction::Delete => continue,
-                        CharMapAction::Sub(sub_str) => {
+                        CharMapAction::SubChar(d) => return Some(*d),
+                        CharMapAction::SubStr(sub_str) => {
                             self.in_sub = true;
                             self.sub_chars = sub_str.chars();
                             // Can't unwrap directly because sub string could

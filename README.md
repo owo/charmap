@@ -63,7 +63,7 @@ use charmap::*;
 // when it sees a particular character.
 let actions = HashMap::from([
     ('!', CharMapAction::Delete),  // Delete instances of '!'
-    ('l', CharMapAction::Sub("LLL")),  // Substitute instances of 'l' with 'LLL'
+    ('l', CharMapAction::SubStr("LLL")),  // Substitute instances of 'l' with 'LLL'
 ]);
 
 // This is the string we want to charmap.

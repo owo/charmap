@@ -55,7 +55,8 @@ mod test {
 
     #[test]
     fn std_btreemap_default_sub_x() {
-        let mapper = CharMapper::new(&*BTREE_CHARMAP, CharMapAction::Sub("x"));
+        let mapper =
+            CharMapper::new(&*BTREE_CHARMAP, CharMapAction::SubStr("x"));
 
         for (input, expected) in TEST_STRINGS_SUB_X {
             let mapped: String = input.map_chars(&mapper).collect();
@@ -73,7 +74,8 @@ mod test {
 
     #[test]
     fn std_btreemap_default_sub_empty() {
-        let mapper = CharMapper::new(&*BTREE_CHARMAP, CharMapAction::Sub(""));
+        let mapper =
+            CharMapper::new(&*BTREE_CHARMAP, CharMapAction::SubStr(""));
 
         for (input, expected) in TEST_STRINGS_DELETE {
             let mapped: String = input.map_chars(&mapper).collect();
@@ -127,7 +129,8 @@ mod test {
 
     #[test]
     fn std_hashmap_default_sub_x() {
-        let mapper = CharMapper::new(&*HASH_CHARMAP, CharMapAction::Sub("x"));
+        let mapper =
+            CharMapper::new(&*HASH_CHARMAP, CharMapAction::SubStr("x"));
 
         for (input, expected) in TEST_STRINGS_SUB_X {
             let mapped: String = input.map_chars(&mapper).collect();
@@ -145,7 +148,8 @@ mod test {
 
     #[test]
     fn std_hashmap_default_sub_empty() {
-        let mapper = CharMapper::new(&*HASH_CHARMAP, CharMapAction::Sub(""));
+        let mapper =
+            CharMapper::new(&*HASH_CHARMAP, CharMapAction::SubStr(""));
 
         for (input, expected) in TEST_STRINGS_DELETE {
             let mapped: String = input.map_chars(&mapper).collect();

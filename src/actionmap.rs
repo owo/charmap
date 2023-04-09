@@ -7,7 +7,9 @@ pub enum CharMapAction<'a> {
     /// Delete the character.
     Delete,
     /// Substitute the character with a string.
-    Sub(&'a str),
+    SubStr(&'a str),
+    /// Substitute the character with another character.
+    SubChar(char),
 }
 
 /// A trait that should be implemented by any struct providing char-to-action

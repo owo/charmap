@@ -1,39 +1,46 @@
 use charmap::CharMapAction;
 
 #[allow(dead_code)]
-pub const TEST_MAPPING: [(char, CharMapAction); 3] = [
-    ('e', CharMapAction::Sub("eeee")),
+pub const TEST_MAPPING: [(char, CharMapAction); 4] = [
+    ('d', CharMapAction::SubChar('m')),
+    ('e', CharMapAction::SubStr("eeee")),
     ('l', CharMapAction::Delete),
     ('o', CharMapAction::Pass),
 ];
 
 #[allow(dead_code)]
-pub const TEST_STRINGS_PASS: [(&str, &str); 6] = [
+pub const TEST_STRINGS_PASS: [(&str, &str); 8] = [
     ("", ""),
+    ("ddddd", "mmmmm"),
+    ("ee", "eeeeeeee"),
     ("lllllll", ""),
     ("ooooo", "ooooo"),
     ("teehee", "teeeeeeeeheeeeeeee"),
-    ("Hello, world!", "Heeeeo, word!"),
+    ("Hello, world!", "Heeeeo, worm!"),
     ("Foo Bar", "Foo Bar"),
 ];
 
 #[allow(dead_code)]
-pub const TEST_STRINGS_DELETE: [(&str, &str); 6] = [
+pub const TEST_STRINGS_DELETE: [(&str, &str); 8] = [
     ("", ""),
+    ("ddddd", "mmmmm"),
+    ("ee", "eeeeeeee"),
     ("lllllll", ""),
     ("ooooo", "ooooo"),
     ("teehee", "eeeeeeeeeeeeeeee"),
-    ("Hello, world!", "eeeeoo"),
+    ("Hello, world!", "eeeeoom"),
     ("Foo Bar", "oo"),
 ];
 
 #[allow(dead_code)]
-pub const TEST_STRINGS_SUB_X: [(&str, &str); 6] = [
+pub const TEST_STRINGS_SUB_X: [(&str, &str); 8] = [
     ("", ""),
+    ("ddddd", "mmmmm"),
+    ("ee", "eeeeeeee"),
     ("lllllll", ""),
     ("ooooo", "ooooo"),
     ("teehee", "xeeeeeeeexeeeeeeee"),
-    ("Hello, world!", "xeeeeoxxxoxxx"),
+    ("Hello, world!", "xeeeeoxxxoxmx"),
     ("Foo Bar", "xooxxxx"),
 ];
 

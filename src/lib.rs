@@ -58,7 +58,7 @@
 //! // when it sees a particular character.
 //! let actions = HashMap::from([
 //!     ('!', CharMapAction::Delete),  // Delete instances of '!'
-//!     ('l', CharMapAction::Sub("LLL")),  // Substitute instances of 'l' with 'LLL'
+//!     ('l', CharMapAction::SubStr("LLL")),  // Substitute instances of 'l' with 'LLL'
 //! ]);
 //!
 //! // This is the string we want to charmap.
@@ -86,7 +86,7 @@
 //! // when it sees a particular character.
 //! let actions = HashMap::from([
 //!     ('!', CharMapAction::Delete),  // Delete instances of '!'
-//!     ('l', CharMapAction::Sub("LLL")),  // Substitute instances of 'l' with 'LLL'
+//!     ('l', CharMapAction::SubStr("LLL")),  // Substitute instances of 'l' with 'LLL'
 //!     ('o', CharMapAction::Pass),  // Output instances of 'o' as is
 //! ]);
 //!
@@ -95,7 +95,7 @@
 //!
 //! // Create a character mapper using the previously defined actions while
 //! // replacing all other characters with "-".
-//! let mapper = CharMapper::new(&actions, CharMapAction::Sub("-"));
+//! let mapper = CharMapper::new(&actions, CharMapAction::SubChar('-'));
 //!
 //! // Use mapper to charmap start_str
 //! let mapped_str: String = start_str.map_chars(&mapper).collect();
