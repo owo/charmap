@@ -32,7 +32,7 @@ since it is an instance of libstd's
 [`phf`](https://crates.io/crates/phf)'s
 [`Map`](https://docs.rs/phf/latest/phf/struct.Map.html) and
 [`OrderedMap`](https://docs.rs/phf/latest/phf/struct.OrderedMap.html) types.
-You can enable these by setting the `'hashbrown'` and `'phf'` features
+You can enable these by setting the `"hashbrown"` and `"phf"` features
 respectively.
 For example, to use `charmap` with [`phf`](https://crates.io/crates/phf),
 add the following to your `Cargo.toml`:
