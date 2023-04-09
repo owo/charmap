@@ -1,4 +1,4 @@
-use core::str::Chars;
+use core::{option, str::Chars};
 
 use super::actionmap::{ActionMap, CharMapAction};
 
@@ -126,7 +126,47 @@ where
 
 /// A trait providing a convenience method for [`Iterators`](Iterator) of
 /// [`char`] to charmap their output.
-pub trait MapCharsIter<'a, M>: Iterator<Item = char>
+pub trait MapCharsIter<'a, M, I: Iterator<Item = char>>
+where
+    M: ActionMap,
+{
+    fn map_chars(self, mapper: &'a CharMapper<'a, M>)
+        -> MappedChars<'a, M, I>;
+}
+
+impl<'a, M> MapCharsIter<'a, M, Chars<'a>> for &'a str
+where
+    M: ActionMap,
+{
+    #[inline]
+    fn map_chars(
+        self,
+        mapper: &'a CharMapper<'a, M>,
+    ) -> MappedChars<'a, M, Chars<'a>>
+    where
+        Self: Sized,
+    {
+        MappedChars::new(mapper, self.chars())
+    }
+}
+
+impl<'a, M> MapCharsIter<'a, M, option::IntoIter<char>> for char
+where
+    M: ActionMap,
+{
+    #[inline]
+    fn map_chars(
+        self,
+        mapper: &'a CharMapper<'a, M>,
+    ) -> MappedChars<'a, M, option::IntoIter<char>>
+    where
+        Self: Sized,
+    {
+        MappedChars::new(mapper, Some(self).into_iter())
+    }
+}
+
+impl<'a, M, I: Iterator<Item = char>> MapCharsIter<'a, M, I> for I
 where
     M: ActionMap,
 {
@@ -140,9 +180,4 @@ where
     {
         MappedChars::new(mapper, self)
     }
-}
-
-impl<'a, M, I: Iterator<Item = char>> MapCharsIter<'a, M> for I where
-    M: ActionMap
-{
 }

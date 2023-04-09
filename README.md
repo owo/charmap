@@ -74,7 +74,7 @@ let start_str = "Hello, world!";
 let mapper = CharMapper::new(&actions, CharMapAction::Pass);
 
 // Use mapper to charmap start_str
-let mapped_str: String = start_str.chars().map_chars(&mapper).collect();
+let mapped_str: String = start_str.map_chars(&mapper).collect();
 
 // Output should be: HeLLLLLLo, worLLLd
 println!("{}", mapped_str);

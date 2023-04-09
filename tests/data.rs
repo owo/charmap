@@ -36,3 +36,15 @@ pub const TEST_STRINGS_SUB_X: [(&str, &str); 6] = [
     ("Hello, world!", "xeeeeoxxxoxxx"),
     ("Foo Bar", "xooxxxx"),
 ];
+
+#[allow(dead_code)]
+pub const TEST_CHARS_PASS: [(char, &str); 5] =
+    [('m', "m"), ('e', "eeee"), ('l', ""), ('o', "o"), ('n', "n")];
+
+#[allow(dead_code)]
+pub const TEST_CHARS_DELETE: [(char, &str); 5] =
+    [('m', ""), ('e', "eeee"), ('l', ""), ('o', "o"), ('n', "")];
+
+#[allow(dead_code)]
+pub const TEST_CHARS_SUB_X: [(char, &str); 5] =
+    [('m', "x"), ('e', "eeee"), ('l', ""), ('o', "o"), ('n', "x")];
